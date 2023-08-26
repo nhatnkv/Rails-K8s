@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install node.js for Rails asset compilation
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get update && apt-get install -y nodejs
+RUN apt-get update && apt-get install -y nodejs && apt-get install -y default-libmysqlclient-dev
 
 # Install Rails dependencies
 COPY Gemfile Gemfile.lock /app/

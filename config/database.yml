@@ -17,9 +17,9 @@ default: &default
 development:
   <<: *default
   database: deploy_app_development
-  host: db
-  username: <%= Rails.application.credentials.database.mysql_user %>
-  password: <%= Rails.application.credentials.database.mysql_password %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,9 +27,9 @@ development:
 test:
   <<: *default
   database: deploy_app_test
-  host: db
-  username: <%= Rails.application.credentials.database.mysql_user %>
-  password: <%= Rails.application.credentials.database.mysql_password %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
