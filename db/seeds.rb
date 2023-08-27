@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Product.destroy_all
+100.times do
+  product = Product.create(
+    name: Faker::Commerce.product_name,
+    price: Faker::Commerce.price
+  )
+
+  url = Faker::Avatar.image(size: '450x300')
+  filename = File.basename(URI.parse(url).path)
+  file = URI.open(url)
+
+  product.thumbnail.attach(io: file, filename: filename)
+end

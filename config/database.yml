@@ -17,9 +17,9 @@ default: &default
 development:
   <<: *default
   database: deploy_app_development
-  host: <%= ENV['DATABASE_HOST'] %>
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] || Rails.application.credentials.database.mysql_host %>
+  username: <%= ENV['DATABASE_USERNAME'] || Rails.application.credentials.database.mysql_user %>
+  password: <%= ENV['DATABASE_PASSWORD'] || Rails.application.credentials.database.mysql_password %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

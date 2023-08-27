@@ -83,3 +83,7 @@ gem 'sassc-rails'
 gem 'haml', '~> 6.1'
 
 gem 'html2haml', '~> 2.3'
+
+gem "faker", "~> 3.2"
+
+gem "kaminari", "~> 1.2"
