@@ -41,7 +41,7 @@
             - if _idx % 2 == 0
               .badge.bg-dark.text-white.position-absolute{style: "top: 0.5rem; right: 0.5rem"} Sale
             / Product image
-            = image_tag product.thumbnail, class: 'card-img-top'
+            %img.card-img-top{alt: "...", src: "https://dummyimage.com/450x300/dee2e6/6c757d.jpg"}/
             / Product details
             .card-body.p-4
               .text-center
