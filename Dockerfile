@@ -18,5 +18,7 @@ COPY . /app/
 # Expose port 3000 to the Docker host
 EXPOSE 3000
 
+RUN rails db:migrate
+
 # Start the Rails server
 CMD ["rails", "server", "-b", "0.0.0.0"]
