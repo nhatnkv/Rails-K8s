@@ -35,9 +35,10 @@
 %section.py-5
   .container.px-4.px-lg-5.mt-5
     .row
-      .input-group.mb-3
-        %span#basic-addon1.input-group-text Search
-        %input.form-control{"aria-describedby" => "basic-addon1", "aria-label" => "Product Name", placeholder: "Product Name", type: "text"}/
+      = form_with url: "/home/index", method: :get do |form|
+        .input-group.mb-3
+          = form.text_field :keyword, { class: 'form-control', placeholder: "Product Name" }
+          = form.submit "Search", class: 'btn btn-success'
     .row.gx-4.gx-lg-5.row-cols-2.row-cols-md-3.row-cols-xl-4.justify-content-center
       - @products.each_with_index do |product, _idx|
         .col.mb-5
@@ -54,8 +55,8 @@
                   = product.name
                 / Product price
                 %span.text-muted.text-decoration-line-through
-                  = number_to_currency(product.price, precision: 2)
-                = number_to_currency(product.price - rand(1..10), precision: 2)
+                  = number_to_currency(product.price.to_f, precision: 2)
+                = number_to_currency(product.price.to_f - rand(1..10), precision: 2)
             / Product actions
             .card-footer.p-4.pt-0.border-top-0.bg-transparent
               .text-center
