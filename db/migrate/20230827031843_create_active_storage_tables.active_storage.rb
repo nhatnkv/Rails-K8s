@@ -10,7 +10,7 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
       t.string   :content_type
       t.text     :metadata
       t.string   :service_name, null: false
-      t.bigint   :byte_size,    null: false
+      t.integer   :byte_size,    null: false
       t.string   :checksum
 
       if connection.supports_datetime_with_precision?
@@ -51,7 +51,7 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
       config = Rails.configuration.generators
       setting = config.options[config.orm][:primary_key_type]
       primary_key_type = setting || :primary_key
-      foreign_key_type = setting || :bigint
+      foreign_key_type = setting || :integer
       [primary_key_type, foreign_key_type]
     end
 end

@@ -25,6 +25,9 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+/app/tmp/sockets/rails_live_reload.sock
+/app/tmp/pids/server.pid
+
 .env
 
 /public/assets

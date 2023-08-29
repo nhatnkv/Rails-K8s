@@ -9,8 +9,7 @@ gem 'rails', '~> 7.0.7', '>= 7.0.7.2'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-# Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.5'
+gem 'pg'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'

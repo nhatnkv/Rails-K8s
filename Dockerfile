@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install node.js for Rails asset compilation
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get update && apt-get install -y nodejs && apt-get install -y default-libmysqlclient-dev
+RUN apt-get update && apt-get install -y nodejs
 
 # Install Rails dependencies
 COPY Gemfile Gemfile.lock /app/
@@ -14,8 +14,6 @@ RUN gem install bundler && bundle install --jobs 4 --retry 3
 
 # Copy the rest of the application code into the container
 COPY . /app/
-
-RUN rm /app/tmp/sockets/rails_live_reload.sock /app/tmp/pids/server.pid
 
 # Expose port 3000 to the Docker host
 EXPOSE 3000
