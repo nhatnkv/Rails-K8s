@@ -1,4 +1,4 @@
-class MyRepository
+class ProductRepository
   include Elasticsearch::Persistence::Repository
 
   index_name :products
