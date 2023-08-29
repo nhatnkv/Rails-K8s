@@ -86,3 +86,9 @@ gem 'html2haml', '~> 2.3'
 gem "faker", "~> 3.2"
 
 gem "kaminari", "~> 1.2"
+
+
+gem 'elasticsearch', '~> 7.13.0'
+gem 'elasticsearch-model', '~> 7.1.1'
+gem 'elasticsearch-rails', '~> 7.1.1'
+gem 'elasticsearch-persistence', '~> 7.1.1'
