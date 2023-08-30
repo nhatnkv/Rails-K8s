@@ -15,6 +15,9 @@ RUN gem install bundler && bundle install --jobs 4 --retry 3
 # Copy the rest of the application code into the container
 COPY . /app/
 
+RUN rm -rf /app/tmp/sockets/rails_live_reload.sock
+RUN rm -rf /app/tmp/pids/server.pid
+
 # Expose port 3000 to the Docker host
 EXPOSE 3000
 

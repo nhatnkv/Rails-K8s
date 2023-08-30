@@ -29,6 +29,8 @@ services:
     environment:
       - xpack.security.enabled=false
       - "discovery.type=single-node"
+      - ELASTIC_PASSWORD=$ELASTIC_USER
+      - ELASTIC_PASSWORD=$ELASTIC_PASSWORD
     mem_limit: 4g
     ports:
       - 9200:9200
@@ -36,6 +38,8 @@ services:
     image: docker.elastic.co/kibana/kibana:7.13.0
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_PASSWORD=$ELASTIC_PASSWORD
+      - ELASTICSEARCH_USERNAME=$ELASTIC_USER
     depends_on:
       - elasticsearch
     ports:
